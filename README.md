@@ -1,6 +1,6 @@
 # MediBridge AI — Rural Healthcare Continuity Platform
 
-> 🏆 **HackCulture Hacktivate 2.0 — HealthTech Track: Healthcare Management**
+> 🏆 **Smart India Hackathon 2026 — HealthTech Track: Healthcare Management**
 
 MediBridge AI connects **Citizens**, **ASHA Frontline Health Workers**, and **Primary Health Centres (PHCs)** into a shared referral and care continuity system — from first symptom to completed care.
 
@@ -52,7 +52,7 @@ npm install
 npm run dev
 ```
 
-The app runs at **http://localhost:5175** (or the next available port).
+The app runs at **http://localhost:5173** (or the next available port).
 
 To enable AI-powered triage, add a `.env` file:
 ```
