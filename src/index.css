@@ -1,0 +1,327 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0D9488;
+  --color-primary-dark: #0F766E;
+  --color-accent-blue: #2563EB;
+  --color-accent-cyan: #0891B2;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  /* Spacing & shadow tokens */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.07);
+  --shadow-card-hover: 0 8px 24px -6px rgb(13 148 136 / 0.12), 0 2px 8px -2px rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 4px 16px -4px rgb(0 0 0 / 0.1), 0 2px 6px -2px rgb(0 0 0 / 0.06);
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── Mobile Utilities ─────────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.65;
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0D9488;
+}
+
+/* ─── Heartbeat ──────────────────────────────────────────────────────────── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.08); }
+  70% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ─── Pulse ring (emergency) ─────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+/* ─── Glass ──────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Skeleton shimmer ───────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* ─── Chat typing dots ───────────────────────────────────────────────────── */
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.typing-dot:nth-child(1) { animation: typing 1.2s ease-in-out infinite 0s; }
+.typing-dot:nth-child(2) { animation: typing 1.2s ease-in-out infinite 0.2s; }
+.typing-dot:nth-child(3) { animation: typing 1.2s ease-in-out infinite 0.4s; }
+
+/* ─── ECG line ───────────────────────────────────────────────────────────── */
+@keyframes ecg {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.ecg-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: ecg 3s linear infinite;
+}
+
+/* ─── Accessibility: focus visible ──────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #0D9488;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ─── Large text mode ────────────────────────────────────────────────────── */
+.large-text {
+  font-size: 1.125rem;
+}
+.large-text h1 { font-size: 2.5rem; }
+.large-text h2 { font-size: 2rem; }
+.large-text h3 { font-size: 1.75rem; }
+.large-text p { font-size: 1.125rem; }
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Toast ──────────────────────────────────────────────────────────────── */
+@keyframes toast-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toast-out {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+.toast-enter {
+  animation: toast-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-exit {
+  animation: toast-out 0.2s ease-in forwards;
+}
+
+/* ─── Card hover elevation ───────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(13, 148, 136, 0.1), 0 4px 10px -4px rgba(0, 0, 0, 0.06);
+}
+
+/* Premium card — tighter, with depth */
+.card-premium {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  border-radius: var(--radius-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-premium:hover {
+  box-shadow: 0 6px 20px -4px rgb(13 148 136 / 0.1), 0 2px 8px -2px rgb(0 0 0 / 0.06);
+  transform: translateY(-2px);
+}
+
+/* ─── Emergency pulse ────────────────────────────────────────────────────── */
+@keyframes emergency-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  50% { box-shadow: 0 0 0 16px rgba(220, 38, 38, 0); }
+}
+
+.emergency-pulse {
+  animation: emergency-pulse 1.8s ease-in-out infinite;
+}
+
+/* ─── AI processing step state ───────────────────────────────────────────── */
+@keyframes step-reveal {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-item {
+  animation: step-reveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ─── Gradients ──────────────────────────────────────────────────────────── */
+.bg-hero-gradient {
+  background: radial-gradient(ellipse at 8% 16%, #f0fdfa 0%, #f8fafc 80%);
+}
+
+.bg-teal-gradient {
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+}
+
+.bg-emergency-gradient {
+  background: linear-gradient(145deg, #450a0a 0%, #991b1b 60%, #b91c1c 100%);
+}
+
+/* Section subtle texture */
+.bg-section-alt {
+  background: #f8fafc;
+  background-image: radial-gradient(circle at 1px 1px, rgba(148,163,184,0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* ─── Process step connector line ────────────────────────────────────────── */
+.process-connector {
+  position: relative;
+}
+
+.process-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #99f6e4, transparent);
+}
+
+/* ─── Button base improvements ───────────────────────────────────────────── */
+button {
+  cursor: pointer;
+}
+
+/* ─── Urgency badge glow ─────────────────────────────────────────────────── */
+.urgency-red-glow {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1), 0 4px 16px rgba(220, 38, 38, 0.08);
+}
+
+.urgency-yellow-glow {
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1), 0 4px 16px rgba(217, 119, 6, 0.06);
+}
+
+.urgency-green-glow {
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1), 0 4px 16px rgba(22, 163, 74, 0.06);
+}
+
+/* ─── Mobile viewport fix for chat ──────────────────────────────────────── */
+.chat-container {
+  height: calc(100dvh - 200px);
+  min-height: 360px;
+  overscroll-behavior: contain;
+  overflow-y: auto;
+}
+
+/* ─── Copy confirmation flash ────────────────────────────────────────────── */
+@keyframes copy-flash {
+  0% { background-color: rgb(240 253 250); }
+  50% { background-color: rgb(204 251 241); }
+  100% { background-color: rgb(240 253 250); }
+}
+
+.copy-flash {
+  animation: copy-flash 0.5s ease-in-out;
+}
+
+/* ─── AI badge pulse ─────────────────────────────────────────────────────── */
+@keyframes ai-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.ai-live-indicator {
+  animation: ai-pulse 2s ease-in-out infinite;
+}

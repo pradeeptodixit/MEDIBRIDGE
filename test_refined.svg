@@ -1,0 +1,30 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mbBg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D9488"/>
+      <stop offset="0.7" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="mbCross" x1="18" y1="17" x2="30" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#CCFBF1"/>
+    </linearGradient>
+  </defs>
+  <!-- Squircle Base -->
+  <rect width="48" height="48" rx="12" fill="url(#mbBg)"/>
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="11.25" stroke="white" stroke-opacity="0.16" stroke-width="1.5"/>
+  
+  <!-- Bridge Foundation Baseline -->
+  <path d="M10 35.5H38" stroke="white" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Under-Bridge Arch (Clearance / Span) -->
+  <path d="M13 35.5C13 28.5 18 24 24 24C30 24 35 28.5 35 35.5" stroke="#2DD4BF" stroke-opacity="0.5" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Architectural 'M' Bridge Structure -->
+  <path d="M13 35.5V18.5C13 14 16 11.5 20 13.5L24 17L28 13.5C32 11.5 35 14 35 18.5V35.5" 
+        stroke="white" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Integrated Health Cross at Nexus -->
+  <path d="M24 17V29" stroke="url(#mbCross)" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M18 23H30" stroke="url(#mbCross)" stroke-width="3.4" stroke-linecap="round"/>
+</svg>
