@@ -1,6 +1,6 @@
 # MediBridge AI — Rural Healthcare Continuity Platform
 
-> 🏆 **Smart India Hackathon 2026 — HealthTech Track: Healthcare Management**
+> 🏆 **Smart India Hackathon (SIH) 2026 — HealthTech Track: Healthcare Management**
 
 MediBridge AI connects **Citizens**, **ASHA Frontline Health Workers**, and **Primary Health Centres (PHCs)** into a shared referral and care continuity system — from first symptom to completed care.
 
@@ -73,4 +73,4 @@ npm run lint
 
 ## Hackathon Disclosure
 
-MediBridge AI was built for **HackCulture Hacktivate 2.0 (HealthTech: Healthcare Management)**. All village risk scores, facility capabilities, and population statistics shown in the app are clearly labeled as **prototype synthetic data** and are not real government or clinical records.
+MediBridge AI was built for **Smart India Hackathon (SIH) 2026 (HealthTech: Healthcare Management)**. All village risk scores, facility capabilities, and population statistics shown in the app are clearly labeled as **prototype synthetic data** and are not real government or clinical records.
